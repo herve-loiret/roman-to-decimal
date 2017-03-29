@@ -50,10 +50,42 @@ public class ConverterCommandTest {
 
 	@Test
 	public void should_convert_1954_values() {
-		CommandResult comandResult = shell.executeCommand(generateCommand(4));
+		CommandResult comandResult = shell.executeCommand(generateCommand(1954));
 
 		assertThat(comandResult.isSuccess()).isTrue();
 		assertThat(comandResult.getResult()).isEqualTo("MCMLIV");
+	}
+
+	@Test
+	public void should_convert_1980_values() {
+		CommandResult comandResult = shell.executeCommand(generateCommand(1980));
+
+		assertThat(comandResult.isSuccess()).isTrue();
+		assertThat(comandResult.getResult()).isEqualTo("MCMLXXX");
+	}
+
+	@Test
+	public void should_convert_3000_values() {
+		CommandResult comandResult = shell.executeCommand(generateCommand(3000));
+
+		assertThat(comandResult.isSuccess()).isTrue();
+		assertThat(comandResult.getResult()).isEqualTo("MMM");
+	}
+
+	@Test
+	public void should_convert_1900_values() {
+		CommandResult comandResult = shell.executeCommand(generateCommand(1900));
+
+		assertThat(comandResult.isSuccess()).isTrue();
+		assertThat(comandResult.getResult()).isEqualTo("MCM");
+	}
+
+	@Test
+	public void should_convert_1800_values() {
+		CommandResult comandResult = shell.executeCommand(generateCommand(1800));
+
+		assertThat(comandResult.isSuccess()).isTrue();
+		assertThat(comandResult.getResult()).isEqualTo("MDCCC");
 	}
 
 	@Test
