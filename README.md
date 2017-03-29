@@ -3,9 +3,9 @@
 
   - mvn clean package 
   - java -jar target/roman-converter-0.0.1-SNAPSHOT.jar
-  - translate VXXCXC
+  - convert --decimal 1980
 
 ## Technical stack 
-  - spring batch
-  - maven
+  - Spring batch
+  - Maven
   - jUnit

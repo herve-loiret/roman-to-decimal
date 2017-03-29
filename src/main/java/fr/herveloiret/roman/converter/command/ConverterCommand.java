@@ -28,7 +28,19 @@ public class ConverterCommand implements CommandMarker {
 	public String translateDecimalToRoman(
 			@CliOption(key = {
 					"decimal" }, mandatory = true, help = "The decimal value to convert") final String decimal) {
-		return converterService.convertDecimalToRoman(Long.valueOf(decimal));
+
+		Long decimalLong = null;
+		try {
+			decimalLong = Long.valueOf(decimal);
+		} catch (NumberFormatException e) {
+			throw new RuntimeException("the value " + decimal + " you specified is not a numeric");
+		}
+
+		if (decimalLong >= 5000 || decimalLong <= -5000) {
+			throw new RuntimeException("this converter doesn't handle number higher or equals than 5000");
+		}
+
+		return converterService.convertDecimalToRoman(decimalLong);
 	}
 
 }
