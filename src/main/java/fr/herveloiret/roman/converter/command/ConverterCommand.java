@@ -33,11 +33,11 @@ public class ConverterCommand implements CommandMarker {
 		try {
 			decimalLong = Long.valueOf(decimal);
 		} catch (NumberFormatException e) {
-			throw new RuntimeException("the value " + decimal + " you specified is not a numeric");
+			return "the value " + decimal + " you specified is not a numeric";
 		}
 
 		if (decimalLong >= 5000 || decimalLong <= -5000) {
-			throw new RuntimeException("this converter doesn't handle number higher or equals than 5000");
+			return "this converter doesn't handle number higher or equals than 5000";
 		}
 
 		return converterService.convertDecimalToRoman(decimalLong);
